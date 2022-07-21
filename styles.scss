@@ -98,6 +98,7 @@ body{
     .hero-section{
         width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 50px 0 450px 0;
@@ -107,6 +108,19 @@ body{
             font-weight: 600;
             font-family: 'Fraunces', sans-serif;
             color: #fff;
+        }
+
+        img{
+            position: absolute;
+            top: 45%;
+            color: var(--White);
+            animation: arrow-down-move 1s ease-in infinite alternate;
+
+            @keyframes arrow-down-move {
+                to {
+                transform: translateY(-15px);
+                }
+            }
         }
     }
 }
@@ -140,6 +154,7 @@ body{
         }
 
         a{
+            position: relative;
             width: 150px;
             display: block;
             text-decoration: none;
@@ -150,18 +165,26 @@ body{
             margin-top: 10px;
             text-transform: uppercase;
             transition: 0.3s;
-            &:hover{
-                border-bottom: 5px solid var(--Yellow);
+
+            &::after{
+                content: "";
+                position: absolute;
+                height: 7px;
+                width: 100%;
+                border-radius: 20px;
+                left: -5px;
+                bottom: 0;
+                opacity: 0.3;
+                z-index: -1;
+                background: var(--Yellow);
             }
         }
-        
     }
 
     .standout{
         a{
-            transition: 0.3s;
-            &:hover{
-                border-bottom: 5px solid var(--Soft-red);
+            &::after{
+                background: var(--Soft-red);
             }
         }
     }
@@ -389,6 +412,9 @@ footer{
 
 @media only screen and (max-width: 768px){
     .header{
+        background-image: url(./images/mobile/image-header.jpg);
+        background-size: cover;
+        background-position: center;
         nav{
             position: relative;
             ul{
@@ -403,6 +429,7 @@ footer{
                 justify-content: center;
                 align-items: center;
                 padding: 20px 0;
+                z-index: 1;
 
                 li{
                     margin: 20px 0;
@@ -435,41 +462,76 @@ footer{
     .container{
         grid-template-columns: 1fr;
 
-
-
         .column{
             width: 100%;
         }
 
         .column:nth-child(1){
             order: 2;
+            padding: 0 20px;
+            text-align: center;
+
+            h3{
+                font-size: 40px;
+            }
+
+            a{
+                margin: 0 auto;
+                margin-top: 30px;
+            }
         }
 
         .column:nth-child(2){
             order: 1;
+            background-image: url(./images/mobile/image-transform.jpg);
+            background-size: cover;
+            background-position: center;
         }
 
         .column:nth-child(3){
             order: 3;
+            background-image: url(./images/mobile/image-stand-out.jpg);
+            background-size: cover;
+            background-position: center;
         }
 
         .column:nth-child(4){
             order: 4;
+            padding: 0 20px;
+            text-align: center;
+
+            h3{
+                font-size: 40px;
+            }
+
+            a{
+                margin: 0 auto;
+                margin-top: 30px;
+            }
         }
 
         .column:nth-child(5){
             order: 5;
+            background-image: url(./images/mobile/image-graphic-design.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px 0 20px;
 
             .text{
-                margin-top: 140px;
+                text-align: center;
             }
         }
 
         .column:nth-child(6){
             order: 6;
+            background-image: url(./images/mobile/image-photography.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px 0 20px;
 
             .text{
-                margin-top: 140px;
+                
+                text-align: center;
             }
         }
 
@@ -524,5 +586,29 @@ footer{
 
     .image-section{
         grid-template-columns: 1fr 1fr;
+
+        .milk-container{
+            background-image: url(./images/mobile/image-gallery-milkbottles.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .orange-container{
+            background-image: url(./images/mobile/image-gallery-orange.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cone-container{
+            background-image: url(./images/mobile/image-gallery-cone.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .sugar-container{
+            background-image: url(./images/mobile/image-gallery-sugar-cubes.jpg);
+            background-size: cover;
+            background-position: center;
+        }
     }
 }

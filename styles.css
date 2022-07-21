@@ -91,6 +91,7 @@ body {
 .header .hero-section {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 50px 0 450px 0;
@@ -100,6 +101,23 @@ body {
   font-weight: 600;
   font-family: "Fraunces", sans-serif;
   color: #fff;
+}
+.header .hero-section img {
+  position: absolute;
+  top: 45%;
+  color: var(--White);
+  -webkit-animation: arrow-down-move 1s ease-in infinite alternate;
+          animation: arrow-down-move 1s ease-in infinite alternate;
+}
+@-webkit-keyframes arrow-down-move {
+  to {
+    transform: translateY(-15px);
+  }
+}
+@keyframes arrow-down-move {
+  to {
+    transform: translateY(-15px);
+  }
 }
 
 .container {
@@ -131,6 +149,7 @@ body {
   line-height: 1.6;
 }
 .container .text-container a {
+  position: relative;
   width: 150px;
   display: block;
   text-decoration: none;
@@ -142,14 +161,20 @@ body {
   text-transform: uppercase;
   transition: 0.3s;
 }
-.container .text-container a:hover {
-  border-bottom: 5px solid var(--Yellow);
+.container .text-container a::after {
+  content: "";
+  position: absolute;
+  height: 7px;
+  width: 100%;
+  border-radius: 20px;
+  left: -5px;
+  bottom: 0;
+  opacity: 0.3;
+  z-index: -1;
+  background: var(--Yellow);
 }
-.container .standout a {
-  transition: 0.3s;
-}
-.container .standout a:hover {
-  border-bottom: 5px solid var(--Soft-red);
+.container .standout a::after {
+  background: var(--Soft-red);
 }
 .container .egg-container {
   background-image: url(./images/desktop/image-transform.jpg);
@@ -352,6 +377,11 @@ footer .social-container i:hover {
 }
 
 @media only screen and (max-width: 768px) {
+  .header {
+    background-image: url(./images/mobile/image-header.jpg);
+    background-size: cover;
+    background-position: center;
+  }
   .header nav {
     position: relative;
   }
@@ -367,6 +397,7 @@ footer .social-container i:hover {
     justify-content: center;
     align-items: center;
     padding: 20px 0;
+    z-index: 1;
   }
   .header nav ul li {
     margin: 20px 0;
@@ -394,27 +425,59 @@ footer .social-container i:hover {
   }
   .container .column:nth-child(1) {
     order: 2;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .container .column:nth-child(1) h3 {
+    font-size: 40px;
+  }
+  .container .column:nth-child(1) a {
+    margin: 0 auto;
+    margin-top: 30px;
   }
   .container .column:nth-child(2) {
     order: 1;
+    background-image: url(./images/mobile/image-transform.jpg);
+    background-size: cover;
+    background-position: center;
   }
   .container .column:nth-child(3) {
     order: 3;
+    background-image: url(./images/mobile/image-stand-out.jpg);
+    background-size: cover;
+    background-position: center;
   }
   .container .column:nth-child(4) {
     order: 4;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .container .column:nth-child(4) h3 {
+    font-size: 40px;
+  }
+  .container .column:nth-child(4) a {
+    margin: 0 auto;
+    margin-top: 30px;
   }
   .container .column:nth-child(5) {
     order: 5;
+    background-image: url(./images/mobile/image-graphic-design.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px 0 20px;
   }
   .container .column:nth-child(5) .text {
-    margin-top: 140px;
+    text-align: center;
   }
   .container .column:nth-child(6) {
     order: 6;
+    background-image: url(./images/mobile/image-photography.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px 0 20px;
   }
   .container .column:nth-child(6) .text {
-    margin-top: 140px;
+    text-align: center;
   }
   .container .text-container {
     padding-top: 50px;
@@ -452,5 +515,25 @@ footer .social-container i:hover {
   }
   .image-section {
     grid-template-columns: 1fr 1fr;
+  }
+  .image-section .milk-container {
+    background-image: url(./images/mobile/image-gallery-milkbottles.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .image-section .orange-container {
+    background-image: url(./images/mobile/image-gallery-orange.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .image-section .cone-container {
+    background-image: url(./images/mobile/image-gallery-cone.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .image-section .sugar-container {
+    background-image: url(./images/mobile/image-gallery-sugar-cubes.jpg);
+    background-size: cover;
+    background-position: center;
   }
 }/*# sourceMappingURL=styles.css.map */
